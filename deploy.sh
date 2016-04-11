@@ -51,7 +51,7 @@ git config user.email "travis@openactive.org"
 
 # compile using spec-generator
 echo Fetching from spec-generator
-curl https://labs.w3.org/spec-generator/?type=respec&url=http://openactive.github.io/spec-template/index.src.html > index.html;
+curl "https://labs.w3.org/spec-generator/?type=respec&url=http://openactive.github.io/spec-template/index.src.html" > index.html;
 
 # The first and only commit to this new Git repo contains all the
 # files present with the commit message "Deploy to GitHub Pages".
