@@ -24,7 +24,7 @@ git config user.email "travis@openactive.org"
 cp ../../index.html index.src.html
 
 git add .
-git commit -m "Deploy to GitHub Pages - Raw"
+git commit -m "Deploy to GitHub Pages - Raw" > /dev/null 2>&1
 
 echo Pushing to gh-pages
 
