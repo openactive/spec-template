@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml' lang='en'>
+  <head>
+    <meta charset='utf-8'/>
+    <title>Openactive Spec Template 0.1</title>
+
+    <script type="text/javascript" class='remove'>
+        var respecConfig = {
+          // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
+          specStatus:           "CG-DRAFT",
+
+          // the specification's short name, as in http://www.w3.org/TR/short-name/
+          shortName:            "spec-template",
+
+          // if you wish the publication date to be other than today, set this
+          // publishDate:  "2009-08-06",
+
+          // if there is a previously published draft, uncomment this and set its YYYY-MM-DD date
+          // and its maturity status
+          // previousPublishDate:  "1977-03-15",
+          // previousMaturity:  "WD",
+
+          // if there a publicly available Editor's Draft, this is the link
+          edDraftURI:           "https://www.openactive.io/spec-template/",
+          //prevED:  "https://www.openactive.io/spec-template/",
+          previousURI:  "https://www.openactive.io/spec-template/",
+          testSuiteURI: "https://www.openactive.io/endpoint-validator/",
+          copyrightStart: 2015,
+
+          // if this is a LCWD, uncomment and set the end of its review period
+          // lcEnd: "2009-08-05",
+
+          // editors, add as many as you like
+          // only "name" is required
+          editors: [
+              { name: "Nick Evans", url: "http://nickevans.me/",
+                company: "imin", companyURL: "http://www.imin.co/",
+                w3cid: "nickevans" },
+              { name: "James Smith", url: "http://floppy.org.uk",
+                company: "Open Data Institute", companyURL: "http://opendata.institute/" }
+
+          ],
+
+          // authors, add as many as you like.
+          // This is optional, uncomment if you have authors as well as editors.
+          // only "name" is required. Same format as editors.
+
+          authors: [
+          ],
+
+          otherLinks: [{
+                key: "Repo",
+                value: "We are on Github",
+                href: "https://github.com/openactive/spec-template/",
+                class: "repo"
+            }, {
+                key: "Issues",
+                href: "https://github.com/openactive/spec-template/issues/"
+            }, {
+                key: "Previous Version",
+                data: [
+                    {
+                        value: "0.0.1",
+                        href: "https://www.openactive.io/spec-template/0.01/"
+                    }
+                ]
+            }
+          ],
+
+          logos: [
+            {
+              src: 'https://www.openactive.io/logos/openactive.png',
+              href: "https://www.openactive.io",
+              alt: "openactive.io",
+              width: 255, //170
+              height: 33, //22
+              id: 'logo'
+            }
+          ],
+
+          // extend the bibliography entries
+          //localBiblio: {},
+
+          // name of the WG
+          wg:           "Openactive Community Group",
+
+          // URI of the public WG page
+          wgURI:        "http://www.w3.org/community/openactive/",
+
+          // name (with the @w3c.org) of the public mailing to which comments are due
+          wgPublicList: "public-openactive",
+
+          // URI of the patent status for this WG, for Rec-track documents
+          // !!!! IMPORTANT !!!!
+          // This is important for Rec-track documents, do not copy a patent URI from a random
+          // document unless you know what you're doing. If in doubt ask your friendly neighbourhood
+          // Team Contact.
+          wgPatentURI:  "",
+          maxTocLevel: 4,
+          preProcess: [ ] ,
+          alternateFormats: [ {uri: "diff-previous.html", label: "diff to previous version"} ],
+          isRecTrack:   true,
+          isNoTrack:    true,
+          issueBase:    "https://github.com/openactive/spec-template/issues/",
+          format: "markdown"
+          
+        };
+    </script>
+
+    <script src='http://www.w3.org/Tools/respec/respec-w3c-common' class='remove'></script>
+    <script type="text/javascript" class='remove'>
+        respecEvents.sub("end-all", function () { 
+            document.body.style.backgroundImage="url('https://www.openactive.io/logos/openactive-sm.png')";
+            document.body.style.backgroundPosition="40px 40px";
+        });
+    </script>
+    <style>
+    table {border-collapse: collapse; border: 1px solid #bec9d9}
+    td, th {padding: 3px 0.5em; border-left:1px solid black; border-right: 1px solid black; border-bottom:1px solid #E2EDFE;}
+    tr th[colspan] {color: #005A9C; background-color: #FEEDE2; text-align: center}
+    th {color: #005A9C; background-color: #E2EDFE; font-weight: normal;border-bottom:1px solid #BEC9D9;}
+    tbody tr th {text-align: left;}
+    td.nb { font-size: smaller;}
+    .rec, .pr {color: #005A9C; background-color: #99EE99}
+    .ext {background-color: #FFFFFF}
+    .cr, .lcwd {color: #005A9C; background-color: #EEEE99}
+    .wd {color: #005A9C; background-color: #EE9999}
+    .ed, .fpwd  {color: #005A9C; background-color: #FF7777}
+
+    #logo { float: right; }
+    </style>
+
+  </head>
+  <body >
+    <section id='abstract'>
+        The W3C Core Mobile Web Platform Community Group was established with the objective of helping to make the Web a compelling platform for developing modern mobile applications. The motivation for that is the widespread view that the Web does not represent a compelling platform for mobile applications today.
+
+        This document presents a small number of simple mobile Web application use cases. It goes on to list features that the underlying mobile Web platform needs to offer to support those use cases. It then lists technology standards (primarily W3C Recommendations) that describe those features - and also notes the current state of development of such specifications, noting also where such specification do not at present exist.
+
+        The purpose of the document is to promote understanding of which areas of Web technology are in need of development, and to encourage prioritization of those areas for specification, implementation and testing.
+
+        Other aspects of the Community Group's work, which includes the collation and specification of test suites to assess conformance to referenced standards, and the specification of a framework within which such conformance testing might be assessed are referenced.
+    </section>
+    
+    <section id='sotd'>
+      Comments on this document are not only welcomed but are actively solicited and should be made on the [public-openactive@w3.org mailing list](http://lists.w3.org/Archives/Public/public-openactive/). The source code is available on [GitHub](https://github.com/openactive/spec-template).
+    </section>
+    
+
+
+
+    Introduction
+    ============
+
+
+Quoting from its [charter](http://www.w3.org/community/coremob/charter/): 
+
+> The goal of the Core Mobile Web Platform (Coremob) Community Group (CG) is to accelerate the adoption of the Mobile Web as a compelling platform for the development of modern mobile Web applications. In order to achieve this mission, the CG brings developers, equipment manufacturers, browser vendors, operators and other relevant members of the industry together to:
+
+> 1. Agree on core features developers can depend on. These will be defined by reference to a variety of other specifications from the W3C and other standards bodies.
+> 1. Compile related conformance test suites.
+> 1. Provide to W3C (and non-W3C) groups use cases, scenarios, and other input to drive successful mobile deployment.
+
+This document is the initial output of the Community Group. Its focus is items 1 and 3 from its charter above.
+
+The following sections serve to contextualize the role of this document against the CG charter.
+
+<p class='issue' data-number='1'>Got a problem here!</p>
+
+### Audience
+
+The primary audience for this document is standardization groups within the W3C as well as equipment manufacturers and browser vendors. The CG also intends it to be of interest to others in its chartered constituency, especially developers, for feedback on the selection of use cases and the derivation of technology requirements from those use cases.
+
+### Goals
+
+In respect of Coremob Charter item 1. above, developers should be able to rely upon a set of Web technologies being consistently present and interoperably implemented across a wide range of browsers. 
+
+Technology specifications do not advance at a similar rate and are not necessarily of equally widespread utility for particular application use cases. In addition, some depend on others. This document is a description of a subset of Web platform technologies, and provides for a limited, or base set of such use cases.
+
+The CG may go on to produce a number of further descriptions of subsets of Web platform technology specifications which will provide for increasingly sophisticated application use cases. 
+
+### Methodology 
+
+The use cases chosen reflect a selection of popular applications that have been created using "native" techniques. Although the chosen set of use cases is limited, and the functionality implied by them is (relatively speaking) simple, the set of functionalities is nonetheless described as being "aspirational" because it goes beyond the state of implementation by most current browsers, and indeed goes beyond the current state of specification of some of those features - see below [Aspirational nature of the document](#aspirational-nature-of-the-document) for a discussion of the aspirational aspect, as construed in this revision. 
+
+Having identified features of the Web platform that are required to fulfill the use cases it is then possible to identify a set of technology specifications (or to note the absence of suitable specifications) that specify those features.
+
+Further, having identified a set of specifications, it is then possible to identify a set of tests (or note the absence of such tests) that can be used to assess conformance with the identified specifications and also to propose a test environment in which those tests can be carried out.
+
+### Purpose of this Document
+
+This document, as mentioned above, sets out the initial limited set of use cases; it derives Web platform technology requirements from them and it identifies technology specifications, at various states of maturity, that fulfill those requirements. It does not identify tests or test suites that match those technology specifications.
+
+Since standardization work is required to complete the set of technologies required to fulfill the various use cases the document identifies, one of the purposes of the document is to point out that increased coordination between the groups that create standards would be beneficial in order to create a more coherent and pragmatically useful mobile Web application platform. 
+
+The intention of this document and subsequent editions, in regard of developers, is to solicit feedback on the use cases and on specific technology areas that are problematic when used in a mobile context. Developers are especially encouraged to contribute to the work of the CG, since it is hoped that such participation will reduce future maintenance and development costs for them and will also provide a means by which developers' voices may be heard by constituencies that need to hear them.
+
+### Aspirational nature of the document
+
+To be clear, the CG is not expressing the judgment that it is not possible to use the Web platform to build a wide variety of applications that can be used in a mobile context. Indeed, there are applications that can be built on the Web platform that work well in a mobile delivery context. The group notes, though, that those applications are not usually specifically mobile in their use cases and tend to be similar in nature to applications that have desktop use cases as much as they have mobile use cases.
+
+Further, the view that it is already practical to develop effective mobile Web applications is expressed with the caveat that there are many "quality of implementation" issues that developers may encounter. For example, the frame rate achievable when developing mobile games may not be sufficient, in some cases, and as another example the synchronization of playing sounds may not be adequate.
+
+### Mobile Focus
+
+Mobile devices often have capabilities (such as a camera) or circumstances of use (such as periods off line, or frequent periods with low bandwidth for data transfer) that make mobile both a more rewarding environment for creation of applications and a more difficult environment for such implementations too.
+
+With the rapid increase in uptake of use of mobile devices, both in developed markets and in less developed markets (perhaps as the only means of Web access in those markets), the CG believes that closing the gap between what can be achieved using Web technology on mobile and what can be achieved using "native application implementations" needs to narrow, urgently.
+
+### Other aspects of the CG's work
+
+Other aspects of the CG's work, as mentioned in its charter, continue in parallel to the development of this document. Those activities include a "Gap analysis" of where there are existing test suites relevant to the technologies identified in this document, as well as discussion of a Test Framework within which to execute tests of the conformance of implementations of technologies identified here.
+
+The CG's [Web site](http://www.w3.org/community/coremob/) and [Wiki](http://www.w3.org/community/coremob/wiki/) contain links to various aspects of the group's work.
+
+### Structure
+
+The document has the following structure:
+
+    1.  Introduction
+        
+        This section, containing information about the document, its history and its scope.
+        
+    2.  Use Cases
+        
+        Discusses the use cases that have been used to derive the requirements of Web technologies.
+        
+    3.  Required Technologies
+        
+        Discusses in abstract terms what technologies are needed to support the use cases.
+        
+    4.  Specifications Selected
+        
+        Discusses the specifications selected to implement "required technologies".
+        
+    5.  Missing Specifications
+            
+        Discusses technologies needed but not specified.
+
+    6.  Quality of Implementation
+            
+        Discusses aspects of implementation of some of the selected technologies
+        
+    
+    Use cases
+    =========
+    
+    The following use cases are designed to be illustrative and are by no means exhaustive. The basis of selection of the use cases is a [survey](https://docs.google.com/spreadsheet/ccc?key=0AuIhlK0fCwP4dEFPR1pUWHk1QVczcV9xbFAtX19CMXc#gid=1) of the top native applications found in mobile application stores. Each application was assessed for its key features and prioritized according to an assessment of how many applications those features would unlock.
+    
+    Take pictures in a remote area without network coverage
+    -------------------------------------------------------
+    
+    Jenna is hiking in a remote area without network coverage. She takes high quality pictures using a Web application. The pictures are stored locally. She decides to post-process some of the pictures she took by applying ready made filters. She is able to continue taking pictures while the filters are applied. When she returns to an area with better network coverage, her pictures are updated to a remote server. While the upload is going on in the background she can continue taking pictures or can browse her previous shots to select the ones she wants to share with her friends.
+    
+    Derived requirements:
+    <a href="#req-offline" class="reqRef"></a>,
+    <a href="#req-app-look" class="reqRef"></a>,
+    <a href="#req-app-feel" class="reqRef"></a>,
+    <a href="#req-fast-scroll" class="reqRef"></a>,
+    <a href="#req-file-storage" class="reqRef"></a>,
+    <a href="#req-camera-access" class="reqRef"></a>,
+    <a href="#req-pic-manipulation" class="reqRef"></a>,
+    <a href="#req-file-upload" class="reqRef"></a>.
+    
+    Record voice memos
+    ------------------
+    
+    While on his morning commute, John records a short voice memo using a Web application. As he is offline, the audio file is stored locally. When he reaches the office, the audio file is asynchronously uploaded to the application's servers where it is transcribed.
+    
+    Derived requirements:
+    <a href="#req-offline" class="reqRef"></a>,
+    <a href="#req-app-look" class="reqRef"></a>,
+    <a href="#req-app-feel" class="reqRef"></a>,
+    <a href="#req-file-storage" class="reqRef"></a>,
+    <a href="#req-microphone-access" class="reqRef"></a>,
+    <a href="#req-file-upload" class="reqRef"></a>.
+    
+    Play a 2D Game
+    ---------------
+    
+    Fantastic Rafaela Sis' is a game the goal of which is to save an imprisoned prince. This is done by navigating a character, Rafaela, across various levels from left to right. Each level consist of a series of obstacles and enemies that the player has to avoid (by jumping over, shooting, etc). The character is controlled by tilting the device. Consequently, the game must be locked in landscape mode to avoid auto-rotation of the viewport interfering with the game play. It has a soundtrack per level and various sound effects.
+    
+    Derived requirements:
+    <a href="#req-orientation-lock" class="reqRef"></a>,
+    <a href="#req-fullscreen" class="reqRef"></a>,
+    <a href="#req-framerate" class="reqRef"></a>,
+    <a href="#req-audio-playback" class="reqRef"></a>,
+    <a href="#req-position" class="reqRef"></a>.
+    
+    Find the nearest subway station
+    -------------------------------
+    
+    Joe uses public transportation to visit his clients scattered around town. In order to find his way around he relies on a Web application that is able to locate him on a map, display the closest subway station and indicate in which direction he should walk to find it.
+    
+    Derived requirements:
+    <a href="#req-position" class="reqRef"></a>,
+    <a href="#req-geolocation" class="reqRef"></a>.
+    
+    Read an online magazine
+    -----------------------
+    
+    Jane likes to read the news on her commute to work. She uses a Web application on her tablet that she updates before leaving home. While on the subway, she is able to read the daily news, watch a video of the highlights of yesterday's football match and listen to the magazine's weekly political podcast. Jane is able to navigate through the application using the back and forward button of her browser. And when she finds an article she would like to share with her friend, Sam, she is able to copy and paste the URL into an email.
+    
+    Derived requirements:
+    <a href="#req-rich-fonts" class="reqRef"></a>,
+    <a href="#req-offline" class="reqRef"></a>,
+    <a href="#req-history" class="reqRef"></a>,
+    <a href="#req-file-storage" class="reqRef"></a>,
+    <a href="#req-data-storage" class="reqRef"></a>,
+    <a href="#req-audio-playback" class="reqRef"></a>,
+    <a href="#req-video-playback" class="reqRef"></a>,
+    <a href="#req-url-schemes" class="reqRef"></a>.
+    
+    View a regular Web site
+    ----------------------
+    
+    Annette is using her mobile device to access her bank's Web site. Although her bank has a dedicated native application _and_ a mobile version of its site, the information she is looking for is only available on the main site. She is nonetheless able to consult it because her mobile browser supports the same set of Web standards as her desktop browser, and is capable of displaying that information despite the difference in screen size and pixel density.
+    
+    Derived requirements:
+    <a href="#req-interoperability" class="reqRef"></a>,
+    <a href="#req-mobile-specific" class="reqRef"></a>.
+    
+    Browse a responsive Web site
+    ---------------------------
+    
+    John is en route to his dental appointment. He is late, does not have a record of his dentist's phone number in his mobile device's address book, and has a very poor network connection. Fortunately, the dentist has a responsive Web site which displays with minimal use of resources on John's mobile device. He is able to find his dentist's phone number and call her.
+    
+    Derived requirements:
+    <a href="#req-interoperability" class="reqRef"></a>,
+    <a href="#req-mobile-specific" class="reqRef"></a>,
+    <a href="#req-responsive" class="reqRef"></a>,
+    <a href="#req-url-schemes" class="reqRef"></a>.
+    
+    Bookmarking a Web application
+    -----------------------------
+    
+    Paul uses the same Web mail application on various devices and browsers. He would like to bookmark it so that it is easily recognizable across his different devices yet blends in with how other applications are portrayed in the given environment.
+    
+    Derived requirements:
+    <a href="#req-meta-data" class="reqRef"></a>.
+    
+    Derived Requirements
+    ====================
+    
+    <p class="note">Managing battery use and network connectivity (e.g. delay, throughput and cost) is an important concern on mobile devices. The CG thinks that agreement on what it is practical to measure and what actions developers might take in response to those measurements is not at a sufficiently advanced stage to posit requirements in this area.</p>
+    
+    The following requirements are derived from the use cases described in <a href="#use-cases" class="sectionRef"></a>.
+    
+    General
+    -------
+    
+    <p id="req-interoperability" class=req>A User Agent MUST support technology commonly available on desktop browsers, so that Web sites and applications designed for desktop are still usable on mobile.</p>
+    
+    <p id="req-mobile-specific" class=req>The User Agent MUST be able to display content specifically targeted at mobile devices.</p>
+    
+    <p id="req-responsive" class=req>It MUST be possible for the User Agent to download and display different content depending on device or User Agent properties such as screen size, pixel density, etc.</p>
+    
+    <p id="req-rich-fonts" class=req>The User Agent MUST support rich typography including using downloadable fonts.</p>
+    
+    App-specific
+    ------------
+    
+    <p id="req-meta-data" class=req>It MUST be possible to provide the User Agent with metadata a such as the application's name, icon, etc.</p>
+    
+    <p id="req-offline" class=req>It MUST be possible to make an application available off-line.</p>
+    
+    <p id="req-history" class=req>The User Agent MUST allow the application developer to define URLs for chosen resources (for example for bookmarking or sharing) and to manipulate session history for single page applications.</p>
+    
+    <p id="req-app-look" class=req>It MUST be possible for Web application user interfaces to occupy all the screen space yet adapt to different screen sizes without leaving unused space or overflowing.</p>
+    
+    <p id="req-app-feel" class=req>It MUST be possible for Web application user interfaces to transition smoothly from one state to another.</p>
+    
+    <p id="req-fast-scroll" class=req>It MUST be possible to scroll smoothly through a large body of content.</p>
+    
+    <p id="req-orientation-lock" class=req>A Web application might be designed to be used strictly in portrait or landscape mode. It MUST be possible to signal this preference to the User Agent.</p>
+    
+    <p id="req-fullscreen" class=req>It MUST be possible for an application to signal to the User Agent that it wants to operate full screen and not inside the User Agent's chrome.</p>
+    
+    Storage
+    -------
+    
+    <p id="req-file-storage" class=req>It MUST be possible to store files locally and retrieve them without requiring further permission from the user.</p>
+    
+    <p id="req-data-storage" class=req>It MUST be possible to asynchronously store and retrieve large, structured persistent data sets.</p>
+
+    Multimedia
+    ----------
+    
+    <p id="req-camera-access" class=req>It MUST be possible to take pictures using the device's camera. This MUST be done in such a way that the user's security and privacy is respected.</p>
+    
+    <p id="req-microphone-access" class=req>It MUST be possible to record audio clips using the device's microphone. This MUST be done in such a way that the user's security and privacy is respected.</p>
+    
+    <p id="req-pic-manipulation" class=req>It MUST be possible to programmatically manipulate a picture so as to crop it, apply filters to it, etc. and save the result of these manipulations. This MUST NOT interrupt the ability of the user to interact with the application.</p>
+    
+    <p id="req-framerate" class=req>It MUST be possible to smoothly draw multiple animated sprites in full screen mode (e.g. at 30fps).</p>
+    
+    <p id="req-audio-playback" class=req>It MUST be possible to play Multiple sound files simultaneously with minimal latency.</p>
+    
+    <p id="req-video-playback" class=req>It MUST be possible to play video content.</p>
+    
+    Sensors
+    -------
+    
+    <p id="req-position" class=req>It MUST be possible for the application to register to receive updates when the position of the device changes.</p>
+    
+    <p id="req-geolocation" class=req>It MUST be possible to obtain the device's current geographic coordinates provided the user consents to sharing those.</p>
+    
+    Networking
+    ----------
+    
+    <p id="req-file-upload" class=req>It MUST be possible to upload files to remote server on different origins asynchronously. Uploads SHOULD continue even if the user navigates to a different page.</p>
+    
+    <p id="req-url-schemes" class=req>`mailto:`, `tel:`, `sms:` and `mmsto:` URL schemes SHOULD allow the user to send an email, make a phone call, send an SMS or send an MMS using the appropriate application to do so.</p>
+    
+    Specifications which address the derived requirements
+    =====================================================
+    
+    This section lists existing specifications which address the requirements expressed in <a href="#derived-requirements" class="sectionRef"></a> and notes their current state of standardization (progress along [W3C Rec Track](http://www.w3.org/2005/10/Process-20051014/tr.html#maturity-levels) is noted using conventional abbreviations).
+
+    The document [Standards for Web Applications on Mobile: current state and roadmap](http://www.w3.org/Mobile/mobile-web-app-state/)  is regularly updated to reflect current status both of standardization and of implementation of many of the same standards.
+
+    <p class="note">The CG has had frequent cause to discuss whether or not it needs to make reference to **the whole** of a referenced specification. In the course of such discussions it has frequently re-iterated that it is not its role to cherry-pick parts of the specifications produced by other groups. Equally, however, it has frequently noted that its use cases require only sub-sections of referenced specifications. The CG has observed that the WGs responsible for producing such specifications might choose to subset their work to advance speed of specification, modularity of testing and so on.</p>
+    
+    <p class="note">The CG notes that simple interoperability of video and audio content is highly desirable. The CG also notes that considerations regarding such interoperability concern all aspects of the use of such content on the Web (and are not of more concern in mobile than elsewhere).</p>
+
+    Markup
+    ------
+
+<table>
+  <thead>
+    <tr><th>Category<th>Specification<th>Status<th>Requirements Addressed
+  </thead>
+  <tbody>
+    <tr><th rowspan="4">General<td>HTML5 [[HTML5]]<td class="cr"><abbr title="Candidate Recommendation">CR</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>,
+      <a href="#req-offline" class=reqRef></a>,
+      <a href="#req-history" class=reqRef></a>,
+      <a href="#req-audio-playback" class=reqRef></a>,
+      <a href="#req-video-playback" class=reqRef></a>
+    <tr><td>HTML Media Capture [[HTMLMEDIACAPTURE]]<td class="wd"><abbr title="Working Draft">WD</abbr><td>
+      <a href="#req-camera-access" class="reqRef"></a>,
+      <a href="#req-microphone-access" class="reqRef"></a>
+    <tr><td>Scalable Vector Graphics (SVG) 1.1 (Second Edition) [[SVG11]]</td><td class="rec"><abbr title="W3C Recommendation">REC</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>,
+      <a href="#req-responsive" class=reqRef></a>
+    <tr><td>CSS Device Adaptation [[CSS-ADAPTATION]] (as specified through a `meta` viewport element)</td><td class="fpwd"><abbr title="First Public Working Draft">FPWD</abbr><td>
+      <a href="#req-mobile-specific" class="reqRef"></a>,
+      <a href="#req-responsive" class=reqRef></a>.
+  </tbody>
+<table>
+
+    Style
+    -----
+
+<table>
+  <thead>
+    <tr><th>Category<th>Specification<th>Status<th>Requirements Addressed
+  </thead>
+  <tbody>
+    <tr><th>General<td>CSS 2.1 [[CSS21]]<td class="rec"><abbr title="W3C Recommendation">REC</abbr><td><a href="#req-interoperability" class="reqRef"></a>
+    <tr><th rowspan="3">Processing
+    <td>CSS Values [[CSS3VAL]] <sup id="fn1-ref">[1](#fn1)</sup><td class="cr" ><abbr title="Candidate Recommendation">CR</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>
+    <tr><td>CSS Media Queries [[CSS3-MEDIAQUERIES]]<td class="rec"><abbr title="W3C Recommendation">REC</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>,
+      <a href="#req-mobile-specific" class=reqRef></a>,
+      <a href="#req-responsive" class=reqRef></a>
+    <tr><td>CSS Selectors Level 3 [[SELECT]]<td class="rec"><abbr title="W3C Recommendation">REC</abbr><td>
+      <a href="#req-interoperability" class=reqRef></a>
+    <tr><th rowspan="3">Graphical
+    <td>CSS Backgrounds and Borders [[CSS3-BG]]<td class="cr"><abbr title="Candidate Recommendation">CR</abbr><td>
+      <a href="#req-interoperability" class=reqRef></a>
+    <tr><td>CSS Color [[CSS3COLOR]]<td class="rec"><abbr title="W3C Recommendation">REC</abbr><td>
+      <a href="#req-interoperability" class=reqRef></a>
+    <tr><td>CSS Image Values and Replaced Content [[CSS3-IMAGES]]<td class="cr"><abbr title="Candidate Recommendation">CR</abbr><td>
+      <a href="#req-interoperability" class=reqRef></a>
+    <tr><th rowspan="2">Layout
+    <td>CSS Flexible Box Layout [[FLEXBOX]]<td class="cr"><abbr title="Candidate Recommendation">CR</abbr><td>
+      <a href="#req-app-look" class=reqRef></a>
+    <tr><td>CSS Transforms [[CSS3-TRANSFORMS]]<td class="wd"><abbr title="Working Draft">WD</abbr><td>
+      <a href="#req-interoperability" class=reqRef></a>
+    <tr><th rowspan="3">Typography
+    <td>CSS Fonts [[CSS3-FONTS]]<td class="wd"><abbr title="Working Draft">WD</abbr><td>
+      <a href="#req-responsive" class=reqRef></a>,
+      <a href="#req-rich-fonts" class=reqRef></a>
+    <tr><td><abbr title="Web Open Font Format">WOFF</abbr> [[WOFF]]<td class="rec"><abbr title="W3C Recommendation">REC</abbr><td>
+      <a href="#req-responsive" class=reqRef></a>,
+      <a href="#req-rich-fonts" class=reqRef></a>
+    <tr><td>CSS Text [[CSS3TEXT]] <sup id="fn2-ref">[2](#fn2)</sup><td class="wd"><abbr title="Working Draft">WD</abbr><td>
+      <a href="#req-rich-fonts" class=reqRef></a>
+    <tr><th rowspan="2">Animations and Transitions
+    <td>CSS Animations [[CSS3-ANIMATIONS]]<td class="wd"><abbr title="Working Draft">WD</abbr><td>
+      <a href="#req-interoperability" class=reqRef></a>
+    <tr><td>CSS Transitions [[CSS3-TRANSITIONS]]<td class="wd"><abbr title="Working Draft">WD</abbr><td>
+      <a href="#req-app-feel" class=reqRef></a>
+  </tbody>
+</table>
+
+<p><small id="fn1">1. Most of the common content of CSS Values is already included in CSS 2.1. There are some features that would be welcomed additions, notably `calc()`, `rem` unit, but also some that don't seem to have a lot of traction (e.g. `toggle()`). [↩](#fn1-ref)</small></p>
+
+<p><small id="fn2">2. The requirements are only for a small subset of CSS Text, mainly text-shadow. Like CSS Values, a lot what is of interest is already covered by CSS 2.1. [↩](#fn2-ref)</small></p>
+
+    Scripting
+    ---------
+    
+<table>
+  <thead>
+    <tr><th>Category<th>Specification<th>Status<th>Requirements Addressed
+  </thead>
+  </tbody>
+   <tbody>
+    <tr><th>General<td>ECMAScript, Edition 5.1 [[ECMA-262-51]]<td class="ext">N/A<td>
+      <a href="#req-interoperability" class="reqRef"></a>
+    <tr><th rowspan="7">DOM
+        <td>DOM4 API [[DOM4]]<td class="wd"><abbr title="Working Draft">WD</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>
+    <tr><td>DOM Level 3 Events [[DOM-LEVEL-3-EVENTS]]<td class="wd"><abbr title="Working Draft">WD</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>
+    <tr><td>Progress Events [[PROGRESS-EVENTS]]<td class="cr"><abbr title="Candidate Recommendation">CR</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>
+    <tr><td>Selectors API Level 1 [[SELECTORS-API]]<td class="pr"><abbr title="Proposed Recommendation">PR</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>
+    <tr><td>Touch Events version 1 [[TOUCH-EVENTS]]<td class="lcwd"><abbr title="Last Call Working Draft">LCWD</abbr><td>
+      <a href="#req-mobile-specific" class="reqRef"></a>
+    <tr><td>CSSOM [[CSSOM]]<td class="fpwd"><abbr title="First Public Working Draft">FPWD</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>
+    <tr><td>CSSOM View [[CSSOM-VIEW]]<td class="wd"><abbr title="Working Draft">WD</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>,
+      <a href="#req-mobile-specific" class="reqRef"></a>
+    <tr><th rowspan="4">Storage
+        <td>Web Storage API [[WEBSTORAGE]]<td class="cr"><abbr title="Candidate Recommendation">CR</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>
+    <tr><td>Indexed Database API [[INDEXEDDB]]<td class="lcwd"><abbr title="Last Call Working Draft">LCWD</abbr><td>
+      <a href="#req-file-storage" class="reqRef"></a>,
+      <a href="#req-data-storage" class="reqRef"></a>
+    <tr><td>File API [[FILE-API]]<td class="wd"><abbr title="Working Draft">WD</abbr><td>
+      <a href="#req-camera-access" class="reqRef"></a>,
+      <a href="#req-microphone-access" class="reqRef"></a>,
+      <a href="#req-pic-manipulation" class="reqRef"></a>,
+      <a href="#req-file-storage" class="reqRef"></a>,
+      <a href="#req-file-upload" class="reqRef"></a>
+    <tr><td>Quota Management API [[QUOTA-API]]<td class="fpwd"><abbr title="First Public Working Draft">FPWD</abbr><td>
+      <a href="#req-offline" class="reqRef"></a>,
+      <a href="#req-file-storage" class="reqRef"></a>,
+      <a href="#req-data-storage" class="reqRef"></a>
+    <tr><th rowspan="3">Networking
+        <td>XMLHttpRequest API [[XMLHTTPREQUEST]]<td class="wd"><abbr title="Working Draft">WD</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>,
+      <a href="#req-file-upload" class="reqRef"></a>
+    <tr><td>Web Messaging API [[POSTMSG]]<td class="cr"><abbr title="Candidate Recommendation">CR</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>
+      <a href="#req-file-upload" class="reqRef"></a>
+    <tr><td>Web Workers API [[WEBWORKERS]]<td class="cr"><abbr title="Candidate Recommendation">CR</abbr><td>
+      <a href="#req-interoperability" class="reqRef"></a>,
+      <a href="#req-file-upload" class="reqRef"></a>
+    <tr><th rowspan="2">Sensors
+        <td>Geolocation API [[GEOLOCATION-API]]<td class="pr"><abbr title="Proposed Recommendation">PR</abbr><td>
+      <a href="#req-geolocation" class="reqRef"></a>
+    <tr><td>DeviceOrientation Event [[DEVICE-ORIENTATION]]<td class="lcwd"><abbr title="Last Call Working Draft">LCWD</abbr><td>
+      <a href="#req-position" class="reqRef"></a>
+    <tr><th rowspan="2">Multimedia
+        <td>Canvas2D API [[CANVAS-2D]]<td class="cr"><abbr title="Candidate Recommendation">CR</abbr><td>
+      <a href="#req-pic-manipulation" class="reqRef"></a>,
+      <a href="#req-framerate" class="reqRef"></a>
+    <tr><td>Timing control for script-based animations API [[ANIMATION-TIMING]]<td class="lcwd"><abbr title="Last Call Working Draft">LCWD</abbr><td>
+      <a href="#req-framerate" class="reqRef"></a>
+  </tbody>
+</table>
+
+    Network
+    -------
+
+<table>
+  <thead>
+    <tr><th>Category<th>Specification<th>Status<th>Requirements Addressed
+  </thead>
+  <tbody>
+    <tr><th rowspan="8">General
+      <td>HTTP 1.1 [[HTTP11]]<td class="ext">N/A<td><a href="#req-interoperability" class=reqRef></a>
+    <tr><td>The Web Origin Concept [[ORIGIN]]<td class="ext">N/A<td><a href="#req-interoperability" class=reqRef></a>
+    <tr><td>Cross-Origin Resource Sharing [[CORS]]<td class="cr"><abbr title="Candidate Recommendation">CR</abbr><td><a href="#req-file-upload" class=reqRef></a>
+    <tr><td>The `data:` URI scheme [[RFC2397]]<td class="ext">N/A<td>  <a href="#req-interoperability" class=reqRef></a>
+    <tr><td>The `mailto:` URI scheme [[RFC6068]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
+    <tr><td>The `tel:` URI scheme [[RFC3966]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
+    <tr><td>The `sms:` URI scheme [[RFC5724]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
+    <tr><td>The `mmsto:` URI scheme [[OMA-URI-SCHEMES]]<td class="ext">N/A<td><a href="#req-url-schemes" class=reqRef></a>
+  </tbody>
+</table>
+
+    Requirements only partially addressed by existing specifications
+    ================================================================
+    
+    The following requirements are only partially addressed by existing specifications: <a href="#req-interoperability" class="reqRef"></a>,
+    <a href="#req-mobile-specific" class="reqRef"></a>,
+    <a href="#req-responsive" class="reqRef"></a>,
+    <a href="#req-meta-data" class="reqRef"></a>,
+    <a href="#req-offline" class="reqRef"></a>, and
+    <a href="#req-orientation-lock" class=reqRef></a>.
+    
+    There is ongoing work to address each of those requirements within W3C as detailed below. The CG encourages these efforts.
+    
+    Pointer events
+    --------------
+    
+    While <a href="#req-interoperability" class="reqRef"></a> and <a href="#req-mobile-specific" class="reqRef"></a> are generally addressed by a number of existing specifications, there is one area which is still problematic - user input. Touch-enabled devices delay click inputs (presumably to handle long and double taps). While there are some [different](https://developers.google.com/mobile/articles/fast_buttons) [solutions](https://github.com/ftlabs/fastclick) that remove the delay, developers tend to rely instead on touch events [[TOUCH-EVENTS]]. In turn, this creates content which doesn't work properly when used with a different kind of input mechanism. In order to address this situation, the [Pointer Event WG](http://www.w3.org/2012/pointerevents/) was formed and has published a first Working Draft [[POINTER-EVENTS]].
+    
+    Responsive Images
+    -----------------
+    
+    While a lot has been done to address <a href="#req-responsive" class="reqRef"></a>, notably through media queries, there is no set solution for responsive images to date. The [Responsive Images CG](http://www.w3.org/community/respimg/) has made a proposal ([The picture element](http://picture.responsiveimages.org/)), and so has the HTML WG ([The srcset attribute](http://www.w3.org/html/wg/drafts/srcset/w3c-srcset/Overview.html)). The HTML WG is set to determine the merit of both solutions and examine whether they should be combined.
+    
+    Application meta-data
+    ---------------------
+    
+    The multitude of existing formats to describe application meta-data (<a href="#req-meta-data" class="reqRef"></a>) have been [listed](http://www.brucelawson.co.uk/2011/installable-web-apps-and-interoperability/) [elsewhere](http://blog.tobie.me/post/14262541286/app-manifests-an-anthology) already. The WebApps WG is [chartered](http://www.w3.org/2012/webapps/charter/Overview.html#deliverables) to work on this and has two related specs: Widget Packaging and Configuration [[WIDGETS]] (which has had little traction among the main vendors), and Web Application Manifest Format and Management APIs [[WEBAPPS-MANIFEST-API]] (which is still an early Editor's draft). Additionally, the combination of a number of [[HTML5]] features, such as the `title` element, `meta` application-name element and `link` icons element provides similar capabilities, yet this solution lacks sufficient comprehensiveness and cohesiveness to meet the requirements.
+    
+    Offline
+    -------
+    
+    Currently, Application Cache is the only Web technology designed to address <a href="#req-offline" class="reqRef"></a>. Its issues have already been [exhaustively](http://www.w3.org/2011/web-apps-ws/Report) [documented](https://etherpad.mozilla.org/appcache-london) [elsewhere](https://etherpad.mozilla.org/appcache). This technology is very complex, poorly understood, and hard to use. It is also [marked at risk](http://www.w3.org/TR/html5/#status-of-this-document) in the HTML5 specification.
+    
+    Recently, the [WebApps WG has decided to take over this work](http://www.w3.org/2012/10/30-webapps-minutes.html#item06) with the blessing of the HTML WG. In parallel, the [Fixing Application Cache CG](http://www.w3.org/community/fixing-appcache/) is collecting case studies, use cases and requirements.
+    
+    Screen Orientation
+    ------------------
+    
+    A specification to fulfill <a href="#req-orientation-lock" class=reqRef></a> is a deliverable of the WebApps WG. A first public Working Draft [[SCREEN-ORIENTATION]] was recently published by the WG. The CG applauds this effort and encourages the WG to explore other solutions such as a JavaScript API for [[CSS-ADAPTATION]] which already has an `orientation` property.
+    
+    
+    Unaddressed requirements
+    ========================
+    
+    The following requirements aren't addressed by existing specifications: <a href="#req-fast-scroll" class=reqRef></a>, and <a href="#req-fullscreen" class=reqRef></a>.
+    
+    However, there is early work going on to address some of these.
+    
+    Momentum and infinite scrolling
+    -------------------------------
+    
+    Smooth and stutter-free scrolling is first and foremost a QoI issue. However, the requirements (maintaining 60fps while possibly altering the DOM) are sufficiently taxing that they are difficult to meet on mobile devices, even on high-end ones. Some [very recent work](http://fremycompany.com/TR/2012/ED-css-viewport/) attempts to cater to this issue.
+    
+    Chromeless Mode
+    ---------------
+    
+    While within the scope of the WebApps WG's [charter](http://www.w3.org/2012/webapps/charter/), no work that would address <a href="#req-fullscreen" class=reqRef></a> is currently ongoing.
+    
+    
+    Quality of Implementation
+    =========================
+    
+    The CG notes that functional conformance to specifications is sometimes insufficient to create a functional user experience of Web applications. There are many areas in which non-functional (or QoI) requirements have been noted, relating to speed, time related consistency (smoothness) and so on. 
+    
+    The group's work to date has yielded the following particular points of note:
+    
+    QoI of the `audio` element
+    --------------------------
+    
+    Implementors should pay particular attention to the quality of implementation of the `audio` element. `audio` elements are commonly used in games to play background music and sound effects. It is recommended that implementations support playing 8 audio files in parallel without audible artifacts and provide sub 10ms latency.
+    
+    Performance of the `canvas` element
+    -----------------------------------
+    
+    Implementors should pay attention to the performance characteristics of the `canvas` element which is particularly well suited for the development of 2D and isometric games. In order to meet the expectations of users, implementations should be capable of running such games at 30fps in full-screen mode.
+    
+    Performance of scrolling, transitions, and animations
+    -----------------------------------------------------
+    
+    Smooth scrolling, transitions, and animations are key to delivering great user experiences. Implementations should aim to render these at 60fps.
+    
+    Dedicated form controls
+    -----------------------
+    
+    On mobile devices content input is often tedious. Implementors should therefore implement dedicated form controls where appropriate (for example, displaying a numerical keypad for inputs of type `tel`).
+    
+    Conformance
+    ===========
+
+This document does not express any conformance requirements. Conformance to this document would consist of conforming to the technology standards it identifies, however, some of the technology standards it identifies have not advanced to a sufficient state of maturity to be capable of having conformance requirements.
+
+    <section class='appendix'>
+    Acknowledgements
+    ================
+    
+    The editors thank Lars Erik Bolstad, Giridhar Mandyam, and Marcos Cáceres for their help collecting use case and requirements.
+    
+    The editors thank Matt Kelly for initiating and driving the research on the requirements of top native applications, and also thank WonSuk Lee and Ming Jin and others who contributed to it.
+    
+    The editors thank [all members](http://www.w3.org/community/coremob/participants) of the Coremob CG for contributions of various kinds.
+    </section>
+  </body>
+</html>
