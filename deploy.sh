@@ -49,3 +49,5 @@ curl https://labs.w3.org/spec-generator/?type=respec&url=http://openactive.githu
 # will be lost, since we are overwriting it.) We redirect any output to
 # /dev/null to hide any sensitive credential data that might otherwise be exposed.
 git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" master:gh-pages > /dev/null 2>&1
+
+cd ..
