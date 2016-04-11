@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e # exit with nonzero exit code if anything fails
 
+# squash messages
+git config --global push.default matching
+
 # clear and re-create the out directory
 rm -rf out || exit 0;
 mkdir out;
@@ -23,12 +26,15 @@ cp ../../index.html index.src.html
 git add .
 git commit -m "Deploy to GitHub Pages - Raw"
 
+echo Pushing to gh-pages
+
 git push --force --quiet "https://${GH_TOKEN}@${GH_REF}"
 
 cd ../..
 
 # wait for gh-pages to refresh (note anyone accessing the file during this time will get the dynamic version)
-sleep 5
+echo Sleeping 10 seconds
+sleep 10
 
 # clear and re-create the out directory
 rm -rf out || exit 0;
@@ -48,7 +54,7 @@ git add .
 git commit -m "Deploy to GitHub Pages - Static"
 
 # compile using spec-generator
-echo Fetching
+echo Fetching from spec-generator
 curl https://labs.w3.org/spec-generator/?type=respec&url=http://openactive.github.io/spec-template/index.src.html -F > index.html;
 
 # Force push from the current repo's master branch to the remote
