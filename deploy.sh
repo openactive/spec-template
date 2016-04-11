@@ -55,7 +55,7 @@ git commit -m "Deploy to GitHub Pages - Static"
 
 # compile using spec-generator
 echo Fetching from spec-generator
-curl https://labs.w3.org/spec-generator/?type=respec&url=http://openactive.github.io/spec-template/index.src.html -F > index.html;
+curl https://labs.w3.org/spec-generator/?type=respec&url=http://openactive.github.io/spec-template/index.src.html > index.html;
 
 # Force push from the current repo's master branch to the remote
 # repo's gh-pages branch. (All previous history on the gh-pages branch
