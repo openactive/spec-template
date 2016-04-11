@@ -23,6 +23,8 @@ git config user.email "travis@openactive.org"
 # copy the src file in (do not change existing files)
 cp ../../index.html index.src.html
 
+touch index.src.html
+
 git add .
 git commit -m "Deploy to GitHub Pages - Raw"
 
@@ -46,14 +48,14 @@ git init
 git config user.name "Travis CI"
 git config user.email "travis@openactive.org"
 
+# compile using spec-generator
+echo Fetching from spec-generator
+curl https://labs.w3.org/spec-generator/?type=respec&url=http://openactive.github.io/spec-template/index.src.html > index.html;
+
 # The first and only commit to this new Git repo contains all the
 # files present with the commit message "Deploy to GitHub Pages".
 git add .
 git commit -m "Deploy to GitHub Pages - Static"
-
-# compile using spec-generator
-echo Fetching from spec-generator
-curl https://labs.w3.org/spec-generator/?type=respec&url=http://openactive.github.io/spec-template/index.src.html > index.html;
 
 # Force push from the current repo's master branch to the remote
 # repo's gh-pages branch. (All previous history on the gh-pages branch
