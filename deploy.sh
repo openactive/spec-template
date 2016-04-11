@@ -24,17 +24,15 @@ git config user.email "travis@openactive.org"
 cp ../../index.html index.src.html
 
 git add .
-git commit -m "Deploy to GitHub Pages - Raw" > /dev/null 2>&1
+git commit -m "Deploy to GitHub Pages - Raw"
 
 echo Pushing to gh-pages
 
-git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" > /dev/null 2>&1
+git push --force --quiet "https://${GH_TOKEN}@${GH_REF}"
 
 cd ../..
 
 # wait for gh-pages to refresh (note anyone accessing the file during this time will get the dynamic version)
-echo Sleeping 10 seconds
-sleep 10
 
 # clear and re-create the out directory
 rm -rf out || exit 0;
