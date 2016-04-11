@@ -23,7 +23,8 @@ git config user.email "travis@openactive.org"
 # copy the src file in (do not change existing files)
 cp ../../index.html index.src.html
 
-touch index.src.html
+# (have for now!) add a date to ensure there's always something to push!
+date > timestamp.txt
 
 git add .
 git commit -m "Deploy to GitHub Pages - Raw"
