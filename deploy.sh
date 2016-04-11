@@ -28,7 +28,7 @@ git commit -m "Deploy to GitHub Pages - Raw"
 
 echo Pushing to gh-pages
 
-git push --force --quiet "https://${GH_TOKEN}@${GH_REF}"
+git push --force --quiet "https://${GH_TOKEN}@${GH_REF}" > /dev/null 2>&1
 
 cd ../..
 
