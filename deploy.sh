@@ -35,6 +35,7 @@ git push --force --quiet "https://${GH_TOKEN}@${GH_REF}"
 cd ../..
 
 # wait for gh-pages to refresh (note anyone accessing the file during this time will get the dynamic version)
+sleep 10
 
 # clear and re-create the out directory
 rm -rf out || exit 0;
