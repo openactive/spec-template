@@ -5,10 +5,6 @@ set -e # exit with nonzero exit code if anything fails
 rm -rf out || exit 0;
 mkdir out;
 
-# inside this git repo we'll pretend to be a new user
-git config user.name "Travis CI"
-git config user.email "travis@openactive.org"
-
 # go to the out directory 
 cd out
 
@@ -16,6 +12,10 @@ cd out
 git clone -b gh-pages "https://${GH_TOKEN}@${GH_REF}"
 
 cd spec-template
+
+# inside this git repo we'll pretend to be a new user
+git config user.name "Travis CI"
+git config user.email "travis@openactive.org"
 
 # copy the src file in (do not change existing files)
 cp ../../index.html index.src.html
@@ -48,6 +48,7 @@ git add .
 git commit -m "Deploy to GitHub Pages - Static"
 
 # compile using spec-generator
+echo Fetching
 curl https://labs.w3.org/spec-generator/?type=respec&url=http://openactive.github.io/spec-template/index.src.html -F > index.html;
 
 # Force push from the current repo's master branch to the remote
