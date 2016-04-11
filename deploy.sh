@@ -15,15 +15,17 @@ cd out
 # get existing gh-pages
 git clone -b gh-pages "https://${GH_TOKEN}@${GH_REF}"
 
+cd spec-template
+
 # copy the src file in (do not change existing files)
-cp ../index.html index.src.html
+cp ../../index.html index.src.html
 
 git add .
 git commit -m "Deploy to GitHub Pages - Raw"
 
 git push --force --quiet "https://${GH_TOKEN}@${GH_REF}"
 
-cd ..
+cd ../..
 
 # wait for gh-pages to refresh (note anyone accessing the file during this time will get the dynamic version)
 sleep 5
