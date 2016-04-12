@@ -2,12 +2,12 @@
 <html xmlns='http://www.w3.org/1999/xhtml' lang='en'>
   <head>
     <meta charset='utf-8'/>
-    <title>Openactive Spec Template 0.0.1</title>
+    <title>Realtime Paged Data Standard 0.2.3</title>
 
     <script type="text/javascript" class='remove'>
         var respecConfig = {
           // specification status (e.g. WD, LCWD, NOTE, etc.). If in doubt use ED.
-          specStatus:           "CG-DRAFT",
+          specStatus:           "unofficial",
 
           // the specification's short name, as in http://www.w3.org/TR/short-name/
           shortName:            "spec-template",
@@ -111,10 +111,23 @@
     </script>
 
     <script src='http://www.w3.org/Tools/respec/respec-w3c-common' class='remove'></script>
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js" class='remove'></script>
     <script type="text/javascript" class='remove'>
         respecEvents.sub("end-all", function () { 
-            document.body.style.backgroundImage="url('https://www.openactive.io/logos/openactive-sm.png')";
-            document.body.style.backgroundPosition="40px 40px";
+            //document.body.style.backgroundImage="url('https://www.openactive.io/logos/openactive-label-01.png')";
+            //document.body.style.backgroundPosition="40px 40px";
+
+            $('body').css('background-image',"url('https://www.openactive.io/logos/openactive-label-01.png')");
+            $('html').css('background','white');
+            
+            //$('h1').before('<h1 style="font-size: 45px; text-transform: uppercase;">Openactive</h1>');
+
+            $('h1').css('font-family',"'Open Sans',sans-serif");
+            $('h1').css('font-weight','300');
+            $('h1').css('color', '#69b9ff');
+
+            $('#toc').css('padding-top','190px');
+
         });
     </script>
     <style>
@@ -130,7 +143,26 @@
     .wd {color: #005A9C; background-color: #EE9999}
     .ed, .fpwd  {color: #005A9C; background-color: #FF7777}
 
-    #logo { float: right; }
+
+    h1 {
+        font-family: 'Open Sans',sans-serif;
+        font-weight: 300;
+        color: #69b9ff;
+        font-size: 220%;
+    }
+
+    h1.big {
+        font-size: 45px;
+        text-transform: uppercase;
+    }
+
+    h2 {
+    }
+
+    body.toc-sidebar #toc {
+        padding-top: 120px;
+    }
+
     </style>
 
   </head>
