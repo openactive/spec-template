@@ -21,7 +21,7 @@ git config user.name "Travis CI"
 git config user.email "travis@openactive.org"
 
 # copy the src file in (do not change existing files)
-cp ../../index.html index.src.html
+cp ../../index.html index.html #index.src.html
 
 # (have for now!) add a date to ensure there's always something to push!
 date > timestamp.txt
@@ -52,7 +52,7 @@ git config user.email "travis@openactive.org"
 
 # compile using spec-generator
 echo Fetching from spec-generator
-curl "https://labs.w3.org/spec-generator/?type=respec&url=http://openactive.github.io/spec-template/index.src.html" > index.html;
+curl "https://labs.w3.org/spec-generator/?type=respec&url=http://openactive.github.io/spec-template/index.html" > index.static.html;
 
 # The first and only commit to this new Git repo contains all the
 # files present with the commit message "Deploy to GitHub Pages".
